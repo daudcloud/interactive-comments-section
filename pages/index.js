@@ -1,6 +1,9 @@
 import Head from "next/head";
+import { useComments, useUser } from "../context/DataContext";
 
 export default function Home() {
+  const [comments, setComments] = useComments();
+  const user = useUser();
   return (
     <div>
       <Head>

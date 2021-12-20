@@ -1,7 +1,12 @@
+import DataProvider from "../context/DataContext";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <DataProvider>
+      <Component {...pageProps} />
+    </DataProvider>
+  );
 }
 
 export default MyApp;
