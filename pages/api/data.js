@@ -2,7 +2,7 @@ export default function handler(req, res) {
   res.status(200).json({
     currentUser: {
       image: {
-        png: "./images/avatars/image-juliusomo.png",
+        png: "/images/avatars/image-juliusomo.png",
         webp: "./images/avatars/image-juliusomo.webp",
       },
       username: "juliusomo",
@@ -16,7 +16,7 @@ export default function handler(req, res) {
         score: 12,
         user: {
           image: {
-            png: "./images/avatars/image-amyrobson.png",
+            png: "/images/avatars/image-amyrobson.png",
             webp: "./images/avatars/image-amyrobson.webp",
           },
           username: "amyrobson",
@@ -31,7 +31,7 @@ export default function handler(req, res) {
         score: 5,
         user: {
           image: {
-            png: "./images/avatars/image-maxblagun.png",
+            png: "/images/avatars/image-maxblagun.png",
             webp: "./images/avatars/image-maxblagun.webp",
           },
           username: "maxblagun",
@@ -46,7 +46,7 @@ export default function handler(req, res) {
             replyingTo: "maxblagun",
             user: {
               image: {
-                png: "./images/avatars/image-ramsesmiron.png",
+                png: "/images/avatars/image-ramsesmiron.png",
                 webp: "./images/avatars/image-ramsesmiron.webp",
               },
               username: "ramsesmiron",
@@ -61,7 +61,7 @@ export default function handler(req, res) {
             replyingTo: "ramsesmiron",
             user: {
               image: {
-                png: "./images/avatars/image-juliusomo.png",
+                png: "/images/avatars/image-juliusomo.png",
                 webp: "./images/avatars/image-juliusomo.webp",
               },
               username: "juliusomo",
