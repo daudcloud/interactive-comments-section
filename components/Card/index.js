@@ -1,8 +1,21 @@
 import Image from "next/image";
 import { useState } from "react";
+import { useComments, useUser } from "../../context/DataContext";
 
 const Card = ({ comment, reply }) => {
   const [editable, setEditable] = useState(false);
+  const [comments, setComments] = useComments();
+  const user = useUser();
+  const update = () => {
+    setEditable(false);
+  };
+  const deleteComment = () => {
+    const temp = comments.map((com) => {
+      const tempReplies = com.replies.filter((r) => r.id !== comment.id);
+      return { ...com, replies: tempReplies };
+    });
+    setComments(temp);
+  };
   return (
     <>
       <div className="comment-section">
@@ -21,9 +34,23 @@ const Card = ({ comment, reply }) => {
                 objectFit="cover"
               />
             </span>
-            <span className="username">{comment.username}</span>
+            <span className="username">{comment.user.username}</span>
             <span className="createdat">{comment.createdAt}</span>
-            <span className="reply">Reply</span>
+            {comment.user.username === user.username ? (
+              <>
+                <span className="settings delete" onClick={deleteComment}>
+                  Delete
+                </span>
+                <span
+                  classname="settings edit"
+                  onClick={() => setEditable(true)}
+                >
+                  Edit
+                </span>
+              </>
+            ) : (
+              <span className="settings reply">Reply</span>
+            )}
           </div>
           {/* end comment header */}
           <div className="comment-content">
@@ -34,6 +61,7 @@ const Card = ({ comment, reply }) => {
             </p>
           </div>
           {/* end comment content */}
+          {editable && <button onClick={update}>Update</button>}
         </div>
         {/* end comment body */}
       </div>

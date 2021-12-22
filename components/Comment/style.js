@@ -17,8 +17,14 @@ const Div = styled.div`
     width: 30px;
     height: 30px;
   }
-  .reply {
+  .settings {
     margin-left: auto;
+  }
+  p[contentEditable="true"] .mention {
+    color: black;
+  }
+  .mention {
+    color: red;
   }
 `;
 
